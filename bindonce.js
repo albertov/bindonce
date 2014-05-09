@@ -10,7 +10,7 @@
 
 	var bindonceModule = angular.module('pasvaz.bindonce', []);
 
-	bindonceModule.directive('bindonce', function ()
+	bindonceModule.directive('bindonce', function ($sce)
 	{
 		var toBoolean = function (value)
 		{
@@ -180,7 +180,7 @@
 									binder.element.text(value);
 									break;
 								case 'html':
-									binder.element.html(value);
+									binder.element.html($sce.getTrustedHtml(value));
 									break;
 								case 'style':
 									binder.element.css(value);
