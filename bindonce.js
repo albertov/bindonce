@@ -10,7 +10,7 @@
 
 	var bindonceModule = angular.module('pasvaz.bindonce', []);
 
-	bindonceModule.directive('bindonce', function ($sce)
+	bindonceModule.directive('bindonce', ['$sce', function ($sce)
 	{
 		var toBoolean = function (value)
 		{
@@ -233,7 +233,7 @@
 		};
 
 		return bindonceDirective;
-	});
+	}]);
 
 	angular.forEach(
 	[
